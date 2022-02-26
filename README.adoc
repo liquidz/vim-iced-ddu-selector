@@ -1,0 +1,35 @@
+= vim-iced-ddu-selector
+
+vim-iced selector for ddu.vim.
+
+== Requires
+
+- https://github.com/Shougo/ddu.vim[Shougo/ddu.vim]
+- https://github.com/vim-denops/denops.vim[vim-denops/denops.vim]
+- https://github.com/liquidz/ddu-source-custom-list[liquidz/ddu-source-custom-list]
+
+== Configuration
+
+.ddu configuration
+[source,vim]
+----
+call ddu#custom#patch_global({
+    \   'kindOptions': {
+    \     'custom-list': {
+    \       'defaultAction': 'callback',
+    \     },
+    \   }
+    \ })
+----
+
+.selector configuration
+[source,vim]
+----
+let g:iced#selector#search_order = ['ddu']
+----
+
+== License
+
+Copyright (c) 2022 http://twitter.com/uochan[Masashi Iizuka]
+
+Distributed under the MIT License.
