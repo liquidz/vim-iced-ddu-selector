@@ -6,6 +6,7 @@ vim-iced selector for ddu.vim.
 
 - https://github.com/Shougo/ddu.vim[Shougo/ddu.vim]
 - https://github.com/vim-denops/denops.vim[vim-denops/denops.vim]
+- https://github.com/liquidz/vim-iced[liquidz/vim-iced] (v3.8.1 or later)
 - https://github.com/liquidz/ddu-source-custom-list[liquidz/ddu-source-custom-list]
 
 == Configuration
