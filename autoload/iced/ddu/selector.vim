@@ -1,6 +1,8 @@
 let s:save_cpo = &cpoptions
 set cpoptions&vim
 
+let g:iced#ddu#selector#ddu_options = get(g:, 'iced#ddu#selector#ddu_options', {})
+
 function! iced#ddu#selector#start(config) abort
   let candidates = get(a:config, 'candidates', [])
   let Callback = get(a:config, 'accept', '')
@@ -9,7 +11,11 @@ function! iced#ddu#selector#start(config) abort
   endif
 
   let id = denops#callback#register({s -> Callback('', s)}, {'once': v:true})
-  call ddu#start({'sources': [{'name': 'custom-list', 'params': {'texts': candidates, 'callbackId': id}}]})
+  let options = copy(g:iced#ddu#selector#ddu_options)
+  call extend(options, {
+        \ 'sources': [{'name': 'custom-list', 'params': {'texts': candidates, 'callbackId': id}}],
+        \ })
+  silent call ddu#start(options)
 endfunction
 
 let &cpoptions = s:save_cpo
